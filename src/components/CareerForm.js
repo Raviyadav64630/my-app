@@ -52,6 +52,16 @@ const CareerForm = () => {
       return;
     }
 
+    if (selectedInterests.length === 0) {
+      alert("Please select at least one interest.");
+      return;
+    }
+
+    if (selectedRoles.length === 0) {
+      alert("Please select at least one role.");
+      return;
+    }
+
     const userData = {
       name,
       age,
@@ -68,7 +78,7 @@ const CareerForm = () => {
       <div className="container">
         <div className="card shadow-lg p-4 mx-auto">
           <h1 className="text-center mb-4 fw-bold">Talent Details</h1>
-  
+
           <form onSubmit={handleSubmit}>
             <div className="mb-3">
               <h5>Name:</h5>
@@ -81,7 +91,7 @@ const CareerForm = () => {
                 required
               />
             </div>
-  
+
             <div className="mb-3">
               <h5>Age / Grade (Optional):</h5>
               <input
@@ -90,14 +100,17 @@ const CareerForm = () => {
                 value={age}
                 onChange={(e) => {
                   const value = e.target.value;
-                  if (value === "" || (Number(value) > 0 && Number(value) < 100)) {
+                  if (
+                    value === "" ||
+                    (Number(value) > 0 && Number(value) < 100)
+                  ) {
                     setAge(value);
                   }
                 }}
                 placeholder="Enter your age"
               />
             </div>
-  
+
             <div className="mb-3">
               <h5>Select Your Interests:</h5>
               <div className="row">
@@ -117,7 +130,7 @@ const CareerForm = () => {
                 ))}
               </div>
             </div>
-  
+
             <div className="mb-3">
               <h5>Select Roles:</h5>
               <Select
@@ -129,8 +142,11 @@ const CareerForm = () => {
                 onChange={handleRoleChange}
               />
             </div>
-  
-            <button type="submit" className="btn btn-dark rounded-pill d-block mx-auto w-50 mt-4">
+
+            <button
+              type="submit"
+              className="btn btn-dark rounded-pill d-block mx-auto w-50 mt-4"
+            >
               Submit
             </button>
           </form>
@@ -138,6 +154,6 @@ const CareerForm = () => {
       </div>
     </div>
   );
-  };
+};
 
 export default CareerForm;

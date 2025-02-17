@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import CareerForm from './components/CareerForm';
 import ProfileView from './components/ProfileView';
 import Footer from './components/Footer';
